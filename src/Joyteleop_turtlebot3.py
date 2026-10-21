@@ -76,8 +76,11 @@ class robot():
 
 data=Joy()
 vel_msg=Twist()
-efficient = 0.6 # 角度增益
-vel_max = 0.2 # 最大线速度
+# efficient = 0.6 # 角度增益
+# vel_max = 0.2 # 最大线速度
+
+efficient = 1.0 # 角度增益
+vel_max = 1.0 # 最大线速度
 
 
 ''' robot position '''
@@ -108,7 +111,7 @@ if __name__ == '__main__':
             vel_msg.angular.z=-1
             vel_msg.linear.x=turtle.linear*vel_max
         
-        elif turtle.linear>0.006 or turtle.linear<-0.006:
+        elif turtle.linear>0.04 or turtle.linear<-0.04:
             vel_msg.linear.x=turtle.linear*vel_max
             vel_msg.angular.z=turtle.angular*abs(turtle.angular)*efficient
         # elif turtle.one==1:#quick
